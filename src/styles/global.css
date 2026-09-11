@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* 1. CONFIGURACIÓN DEL TEMA OFICIAL DE DAISYUI */
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true; 
+  prefersdark: true; /* Tu paleta tiene fondos oscuros (rgb 17 19 24) */
+  color-scheme: dark; 
+
+  /* Mapeo con tus colores de Material 3 */
+  --color-base-100: var(--md-sys-color-background);          /* Fondo negro rgb(17 19 24) */
+  --color-base-200: var(--md-sys-color-surface-container-low); /* Capa interna rgb(29 32 36) */
+  --color-base-300: var(--md-sys-color-surface-container);     /* Capa del navbar rgb(46 48 54) */
+  --color-base-content: var(--md-sys-color-on-surface);        /* Texto blanco rgb(255 255 255) */
+  
+  --color-primary: var(--md-sys-color-primary);
+  --color-primary-content: var(--md-sys-color-on-primary);
+  
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-secondary-content: var(--md-sys-color-on-secondary);
+  
+  --color-accent: var(--md-sys-color-tertiary);
+  --color-accent-content: var(--md-sys-color-on-tertiary);
+  
+  --color-neutral: var(--md-sys-color-surface-variant);
+  --color-neutral-content: var(--md-sys-color-on-surface-variant);
+  
+  --color-info: var(--md-sys-color-primary-container);
+  --color-info-content: var(--md-sys-color-on-primary-container);
+  
+  --color-error: var(--md-sys-color-error);
+  --color-error-content: var(--md-sys-color-on-error);
+
+  /* Puedes ajustar los radios de curva al estilo Material 3 si quieres (opcional) */
+  --radius-selector: 9999px; /* Forma de píldora típica de Material 3 */
+  --radius-box: 12px;       /* Tarjetas de Material 3 */
+}
+
+/* 2. REGISTRO DEL RESTO DE COLORES EXTRA DE TU PALETA EN TAILWIND */
+@theme {
+  /* Fuentes */
+  --font-brand: var(--md-ref-typeface-brand);
+  --font-plain: var(--md-ref-typeface-plain);
+
+  /* Contenedores y fijos que no entran en el esqueleto de DaisyUI */
+  --color-background: var(--md-sys-color-background);
+  --color-surface-tint: var(--md-sys-color-surface-tint);
+  --color-secondary-container: var(--md-sys-color-secondary-container);
+  --color-on-secondary-container: var(--md-sys-color-on-secondary-container);
+  --color-tertiary-container: var(--md-sys-color-tertiary-container);
+  --color-on-tertiary-container: var(--md-sys-color-on-tertiary-container);
+  --color-error-container: var(--md-sys-color-error-container);
+  --color-on-error-container: var(--md-sys-color-on-error-container);
+  --color-outline: var(--md-sys-color-outline);
+  --color-outline-variant: var(--md-sys-color-outline-variant);
+  --color-inverse-surface: var(--md-sys-color-inverse-surface);
+  --color-inverse-on-surface: var(--md-sys-color-inverse-on-surface);
+  --color-inverse-primary: var(--md-sys-color-inverse-primary);
+
+  /* Tonos fijos (Fixed) */
+  --color-primary-fixed: var(--md-sys-color-primary-fixed);
+  --color-on-primary-fixed: var(--md-sys-color-on-primary-fixed);
+  --color-primary-fixed-dim: var(--md-sys-color-primary-fixed-dim);
+  --color-on-primary-fixed-variant: var(--md-sys-color-on-primary-fixed-variant);
+  --color-secondary-fixed: var(--md-sys-color-secondary-fixed);
+  --color-on-secondary-fixed: var(--md-sys-color-on-secondary-fixed);
+  --color-secondary-fixed-dim: var(--md-sys-color-secondary-fixed-dim);
+  --color-on-secondary-fixed-variant: var(--md-sys-color-on-secondary-fixed-variant);
+  --color-tertiary-fixed: var(--md-sys-color-tertiary-fixed);
+  --color-on-tertiary-fixed: var(--md-sys-color-on-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--md-sys-color-tertiary-fixed-dim);
+  --color-on-tertiary-fixed-variant: var(--md-sys-color-on-tertiary-fixed-variant);
+
+  /* Variaciones de superficie extras */
+  --color-surface-dim: var(--md-sys-color-surface-dim);
+  --color-surface-bright: var(--md-sys-color-surface-bright);
+  --color-container-lowest: var(--md-sys-color-surface-container-lowest);
+  --color-container-high: var(--md-sys-color-surface-container-high);
+  --color-container-highest: var(--md-sys-color-surface-container-highest);
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
